@@ -8,6 +8,10 @@ class TaskData {
     Task(taskContent: "Watch movie"),
   ];
 
+  String getText(index) {
+    return tasks[index].taskContent;
+  }
+
   void addTask(String task) {
     tasks.add(
       Task(taskContent: task),

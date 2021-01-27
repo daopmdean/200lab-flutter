@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_daytwo_todolist/add_task_page.dart';
 import 'package:flutter_daytwo_todolist/data/task_data.dart';
+import 'package:flutter_daytwo_todolist/widgets/tasks_list.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -15,20 +16,35 @@ class _MyHomePageState extends State<MyHomePage> {
   TaskData _data;
 
   @override
+  void initState() {
+    super.initState();
+    _data = TaskData();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
       body: Center(
-        child: Column(),
+        child: TasksList(
+          tasks: _data.tasks,
+        ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          showModalBottomSheet(
+        onPressed: () async {
+          var newTask = await showModalBottomSheet(
             context: context,
             builder: (context) => AddTaskPage(),
           );
+
+          newTask = newTask.toString().trim();
+          if (newTask == '') {
+            return;
+          }
+
+          _data.addTask(newTask);
         },
         child: Icon(Icons.add),
       ),
