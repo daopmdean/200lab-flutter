@@ -30,6 +30,9 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: TasksList(
           tasks: _data.tasks,
+          onTap: () {
+            setState(() {});
+          },
         ),
       ),
       floatingActionButton: FloatingActionButton(
@@ -39,12 +42,18 @@ class _MyHomePageState extends State<MyHomePage> {
             builder: (context) => AddTaskPage(),
           );
 
+          if (newTask == null) {
+            return;
+          }
+
           newTask = newTask.toString().trim();
           if (newTask == '') {
             return;
           }
 
-          _data.addTask(newTask);
+          setState(() {
+            _data.addTask(newTask);
+          });
         },
         child: Icon(Icons.add),
       ),
