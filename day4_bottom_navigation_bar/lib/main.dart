@@ -1,6 +1,5 @@
 import 'package:day4_bottom_navigation_bar/my_bottom_navigation_bar.dart';
 import 'package:day4_bottom_navigation_bar/screens/home_screen.dart';
-import 'package:day4_bottom_navigation_bar/screens/home_screen_detail.dart';
 import 'package:day4_bottom_navigation_bar/screens/profile_screen.dart';
 import 'package:day4_bottom_navigation_bar/screens/setting_screen.dart';
 import 'package:flutter/material.dart';

@@ -1,4 +1,3 @@
-import 'package:day4_bottom_navigation_bar/my_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreenDetail extends StatelessWidget {
